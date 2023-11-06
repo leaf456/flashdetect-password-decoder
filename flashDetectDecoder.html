@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Flash detect password decoder</title>
+		<script>
+		function decode() {
+			let code = document.getElementById("main-input").value
+			let checksum = parseInt(code.substr(0, 3))
+			let finalCode = ""
+			console.log("Current code checksum: ", checksum)
+			let numberOfCharacters = code.length / 3 - 1
+			console.log("Password length: ", numberOfCharacters)
+			for (let i = 0; i < numberOfCharacters; i++) {
+				let thisCode = parseInt(code.substring(i * 3 + 3, i * 3 + 6))
+				let correctedCode = thisCode - checksum
+				let character = String.fromCharCode(correctedCode)
+				finalCode += character
+			}
+			console.log("Password: ", finalCode)
+			document.getElementById("result").innerText = finalCode
+		}
+		</script>
+	</head>
+	<body>
+		<input id="main-input" placeholder="Encrypted password goes here"></input>
+		<button onclick="decode()">Decrypt password</button>
+		<p id="result"></p>
+	</body>
+</html>
