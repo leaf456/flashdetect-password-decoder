@@ -15,3 +15,5 @@ Then, get the ascii character codes from them.
     1   8 (etc)  
 
 And there you go, you've decoded the password!
+
+This repo also contains the flashDetectBeta folder that I've obtained from FreeMEG's website, for historial purposes.
